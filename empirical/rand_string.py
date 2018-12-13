@@ -1,6 +1,6 @@
 import random
 
-length = 200
+length = 10
 
 def rand_string():
 	return ''.join([str(random.randint(0, 1)) for _ in range(length)])

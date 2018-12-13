@@ -67,8 +67,7 @@ class BinaryString:
 			else:
 				cur = 0
 
-			if cur >= 7:
-				cnt += cur - 6
+			cnt += min((cur, 7))
 
 		return cnt
 
