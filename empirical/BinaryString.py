@@ -1,10 +1,22 @@
 
 # length = 200
-# consider 0
+# consider 1
 
 class BinaryString:
 	def __init__(self, string):
+		for c in string:
+			assert c in '01'
 		self.string = string
+
+	def __str__(self):
+		return self.string
+
+	def get_one_count(self):
+		cnt = 0
+		for c in self.string:
+			cnt += c == '1'
+
+		return cnt
 
 	def get_longest(self):
 		ret, cur = 0, 0
