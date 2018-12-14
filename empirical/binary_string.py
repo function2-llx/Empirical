@@ -3,6 +3,7 @@
 
 from .rand_string import rand_string
 from copy import copy, deepcopy
+from .mathlib import sqr
 
 
 class BinaryString:
@@ -87,3 +88,11 @@ class BinaryString:
 			i += 2
 
 		return n
+
+	def get_X(self):
+		n = self.get_n()
+		ret = 0
+		for x in n:
+			ret += sqr(x - 25)
+
+		return ret / 25

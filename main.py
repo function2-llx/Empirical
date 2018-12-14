@@ -1,6 +1,5 @@
 from empirical.binary_string import BinaryString
 from empirical.rand_string import rand_string, length
-from matplotlib import pyplot as plt
 from empirical.empirical_plotter import EmpiricalPlotter
 
 T = 10000
@@ -11,7 +10,8 @@ if __name__ == "__main__":
 		'1的个数': BinaryString.get_one_count,
 		'长度为5的1串': BinaryString.get_equal_five,
 		'长度为6的1串': BinaryString.get_equal_six,
-		'长度不超过7的1串': BinaryString.get_not_greater_seven
+		'长度不超过7的1串': BinaryString.get_not_greater_seven,
+		'X': BinaryString.get_X
 	}
 
 	for title in funcs:
