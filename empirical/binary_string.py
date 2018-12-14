@@ -1,12 +1,19 @@
-
 # length = 200
 # consider 1
 
+from rand_string import rand_string
+from copy import copy, deepcopy
+
 class BinaryString:
-	def __init__(self, string):
-		for c in string:
-			assert c in '01'
-		self.string = string
+	def __init__(self, string=''):
+		if not string:
+			self.string = rand_string()
+		else:
+			self.string = copy(string)
+
+		for c in self.string:
+			if not c in '01':
+				raise Exception('01 string required')
 
 	def __str__(self):
 		return self.string

@@ -1,12 +1,33 @@
-from BinaryString import BinaryString
-from rand_string import rand_string
+from binary_string import BinaryString
+from rand_string import rand_string, length
+from matplotlib import pyplot as plt
+
+
+T = 10000
 
 if __name__ == "__main__":
-	string = BinaryString(rand_string())
-	print(string)
-	print('positive = ', string.get_one_count())
-	print('longest = ', string.get_longest())
-	print('five = ', string.get_equal_five())
-	print('six = ', string.get_equal_six())
-	print('(<=) seven = ', string.get_not_greater_seven())
-	print('n0, n1, n2, n3 = ', string.get_n())
+	# func = BinaryString.get_one_count
+	# string = BinaryString('110011')
+	# print(type(BinaryString.get_one_count))
+	# print(func(string))
+
+	strings = [BinaryString() for _ in range(T)]
+	# for string in strings:
+	# 	print(string)
+
+	cnts = [string.get_one_count() for string in strings]
+	cnts.sort()
+	# print(cnts)
+
+	x = list(range(0, length + 1))
+	y = [0] * (length + 1)
+
+	cur = 0
+	for i in x:
+		while cur < T and cnts[cur] <= i:
+			cur += 1
+
+		y[i] = cur / T
+
+	plt.plot(x, y)
+	plt.show()
