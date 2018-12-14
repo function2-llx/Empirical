@@ -1,7 +1,10 @@
 from matplotlib import pyplot as plt
+from copy import copy
 
 class EmpiricalPlotter:
-	def __init__(self, data):
+	def __init__(self, data, title='untitled'):
+		self.title = copy(title)
+
 		n = len(data)
 		data.sort()
 
@@ -17,5 +20,5 @@ class EmpiricalPlotter:
 
 	def plot(self):
 		plt.plot(self.x, self.y)
-		plt.title('233')
+		plt.title(self.title, fontproperties="SimHei")
 		plt.show()

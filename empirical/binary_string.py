@@ -1,8 +1,9 @@
 # length = 200
 # consider 1
 
-from rand_string import rand_string
+from .rand_string import rand_string
 from copy import copy, deepcopy
+
 
 class BinaryString:
 	def __init__(self, string=''):
