@@ -13,3 +13,4 @@ def gamma_distribution(x, alpha, lambda_):
 
 def chi_square_distribution(x, n):
 	return gamma_distribution(x, n / 2, 0.5)
+
