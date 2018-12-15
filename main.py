@@ -19,4 +19,5 @@ if __name__ == "__main__":
 		data = [func(string) for string in strings]
 		plotter = EmpiricalPlotter(data, title)
 		plotter.plot()
+		
 	
