@@ -1,6 +1,8 @@
 from empirical.binary_string import BinaryString
 from empirical.rand_string import rand_string, length
 from empirical.empirical_plotter import EmpiricalPlotter
+from empirical.normal_set import NormalSet
+from empirical.multi_empirical_plotter import MultiEmpiricalPlotter
 
 T = 100000
 
@@ -20,5 +22,16 @@ if __name__ == "__main__":
 		data = [func(string) for string in strings]
 		plotter = EmpiricalPlotter(data, title)
 		plotter.plot()
-		
+
+	normals = [NormalSet() for _ in range(T)]
+
+	multi_plotter = MultiEmpiricalPlotter('次序统计量')
 	
+	for order in (1, 20, 50, 51):
+		data = [n.get_order(order) for n in normals]
+		if order in (1, 20, 50):
+			multi_plotter.add(data)
+		plotter = EmpiricalPlotter(data, 'X(' + str(order) + ')')
+		plotter.plot()
+		
+	multi_plotter.plot()
