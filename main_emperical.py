@@ -2,7 +2,7 @@ from empirical.binary_string import BinaryString
 from empirical.rand_string import rand_string, length
 from empirical.empirical_plotter import EmpiricalPlotter
 
-T = 10000
+T = 100000
 
 if __name__ == "__main__":
 	strings = [BinaryString() for _ in range(T)]
