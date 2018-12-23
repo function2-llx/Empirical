@@ -2,7 +2,7 @@ from matplotlib import pyplot as plt
 from copy import copy
 from math import ceil
 import numpy as np
-from .mathlib import chi_square_distribution, binomial_distribution
+from .mathlib import *
 import re
 
 
@@ -38,6 +38,7 @@ class EmpiricalPlotter:
             y = [chi_square_distribution(i, 3) for i in x]
             plt.plot(x, y)
 
+
         if re.match(r'^X(\d*)', self.title):
             plt.xlabel('E=' + str(self.e) + ' var=' + str(self.var))
 
@@ -45,6 +46,9 @@ class EmpiricalPlotter:
             n = 200
             x = list(range(0, n + 1))
             y = [binomial_distribution(i, n, 0.5) for i in x]
+            plt.plot(x, y)
+            x = np.linspace(0, 200, 1000)
+            y = [normal_distribution(i, 100, sqrt(50)) for i in x]
             plt.plot(x, y)
 
         plt.title(self.title, fontproperties="SimHei")

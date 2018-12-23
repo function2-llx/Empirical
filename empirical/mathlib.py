@@ -1,8 +1,9 @@
 from scipy.special import gamma
 from scipy.integrate import quad
-from numpy import exp
+from numpy import exp, inf, pi
 from numpy.random import binomial
 from scipy import stats
+from math import sqrt
 
 def sqr(x):
     return x * x
@@ -28,3 +29,9 @@ def binomial_distribution(k, n, p):
         ret += stats.binom.pmf(i, n, p)
 
     return ret
+
+def normal_density(x, mu, sigma):
+    return exp(-sqr(x - mu) / (2 * sqr(sigma))) / (sqrt(2 * pi) * sigma)
+
+def normal_distribution(x, mu, sigma):
+    return quad(lambda t: normal_density(t, mu, sigma), -inf, x)[0]
